@@ -1,0 +1,11 @@
+POST http://nginx.gatewaypayment.orb.local/api/payment/aci
+Content-Type: application/json
+
+{
+  "amount": "10",
+  "currency": "EUR",
+  "cardNumber": "4200000000000000",
+  "cardExpMonth": "05",
+  "cardExpYear": "2034",
+  "cardCvv": "111"
+}
