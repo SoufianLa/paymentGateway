@@ -13,6 +13,19 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
 
+    http_client:
+        scoped_clients:
+            shift4.client:
+                base_uri: '%env(SHIFT4_ENDPOINT)%'
+                auth_basic: '%env(SHIFT4_AUTH)%:'
+                headers:
+                    Accept: 'application/json'
+            aci.client:
+                base_uri: '%env(ACI_ENDPOINT)%'
+                headers:
+                   Accept: 'application/json'
+                   Authorization: 'Bearer %env(ACI_AUTH)%'
+
     #esi: true
     #fragments: true
     php_errors:
