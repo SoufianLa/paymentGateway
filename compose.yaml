@@ -1,0 +1,25 @@
+services:
+  php:
+    build:
+      context: ./docker/php
+    image: php:8.3-fpm
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - pgate
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    image: nginx:latest
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/templates:/etc/nginx/templates
+    networks:
+      - pgate
+    links:
+      - php
+
+networks:
+  pgate:
